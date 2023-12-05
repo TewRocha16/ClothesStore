@@ -8,9 +8,9 @@ using UnityEngine.EventSystems;
 public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] private string buttonName;
-    [SerializeField] private UnityEvent clickEvent;
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip pressedSound;
+    public UnityEvent clickEvent;
     private AudioSource audioSource;
     private bool canPress = true;
     private void Awake()
@@ -21,7 +21,8 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler
     }
     public void SetButtonName(string _buttonName)
     {
-        GetComponentInChildren<TMP_Text>().text = _buttonName;
+        if (!string.IsNullOrEmpty(_buttonName))
+            GetComponentInChildren<TMP_Text>().text = _buttonName;
     }
     public void TaskOnClick()
     {
@@ -38,7 +39,6 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         PlayAudio(hoverSound);
-        Debug.Log("Mouse is over GameObject.");
     }
     void PlayAudio(AudioClip clip)
     {
