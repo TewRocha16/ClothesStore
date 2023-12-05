@@ -6,15 +6,17 @@ using UnityEngine;
 public class PlayerMovementBehaviour : MonoBehaviour
 {
     private PlayerBehaviour playerBehaviour;
+    private Rigidbody2D rigidBody;
     private Animator animator;
     [Header("Movement Configs")]
     [SerializeField] private float speed;
     private float lastXInput = 0;
     private float lastYInput = 0;
-    public void Setup(PlayerBehaviour behaviour, Animator anim)
+    public void Setup(PlayerBehaviour behaviour, Animator anim, Rigidbody2D rb)
     {
         playerBehaviour = behaviour;
         animator = anim;
+        rigidBody = rb;
     }
     private void Update()
     {
@@ -25,18 +27,18 @@ public class PlayerMovementBehaviour : MonoBehaviour
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
 
-        if (xInput != 0)
-        {
-            lastYInput = 0;
-            lastXInput = xInput;
-        }
         if (yInput != 0)
         {
             lastXInput = 0;
             lastYInput = yInput;
         }
+        if (xInput != 0)
+        {
+            lastYInput = 0;
+            lastXInput = xInput;
+        }
 
-        Vector3 direction = new Vector3 (xInput, yInput, 0);
+        Vector2 direction = new Vector2 (xInput, yInput);
 
         animator.SetFloat("xInput", xInput);
         animator.SetFloat("yInput", yInput);
@@ -44,6 +46,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
         animator.SetFloat("lastYDirection", lastYInput);
         animator.SetFloat("speed", direction.magnitude);
 
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        rigidBody.MovePosition(rigidBody.position + direction.normalized * speed*Time.deltaTime);
+
+        //transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
 }
