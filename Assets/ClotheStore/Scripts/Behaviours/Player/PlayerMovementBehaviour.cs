@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PlayerMovementBehaviour : MonoBehaviour
 {
-    private PlayerBehaviour playerBehaviour;
+    private PlayerManager playerBehaviour;
     private Rigidbody2D rigidBody;
     private Animator animator;
     [Header("Movement Configs")]
     [SerializeField] private float speed;
     private float lastXInput = 0;
     private float lastYInput = 0;
-    public void Setup(PlayerBehaviour behaviour, Animator anim, Rigidbody2D rb)
+    public void Setup(PlayerManager behaviour, Animator anim, Rigidbody2D rb)
     {
         playerBehaviour = behaviour;
         animator = anim;
