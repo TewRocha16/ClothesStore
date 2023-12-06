@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionBase : MonoBehaviour
+public abstract class InteractionBase : MonoBehaviour
 {
     internal bool isColliding;
     [SerializeField] private GameObject interactionFeedback;
@@ -26,6 +26,10 @@ public class InteractionBase : MonoBehaviour
     {
 
     }
+    public virtual void EndInteraction()
+    {
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -38,6 +42,7 @@ public class InteractionBase : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isColliding = false;
+            EndInteraction();
         }
     }
 }
