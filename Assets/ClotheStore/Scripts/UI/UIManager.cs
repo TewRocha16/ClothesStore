@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public Store Store;
+    public Inventory Inventory;
+    public ConfirmationModal ConfirmationModal;
     public TMP_Text CoinUI;
     private void Awake()
     {

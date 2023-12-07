@@ -9,25 +9,28 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     private Rigidbody2D rigidBody;
-    private Animator animator;
+    private Animator playerAnimator;
     private PlayerMovementBehaviour playerMovementBehaviour;
     private PlayerInventory playerInventory;
     private int currency = 0;
-
-    public Animator Animator { get => animator; set => animator = value; }
+    private ClothesManager clothesManager;
     public Rigidbody2D RigidBody { get => rigidBody; set => rigidBody = value; }
-    public int Currency { get => currency; set => currency = value; }
     public PlayerInventory PlayerInventory { get => playerInventory; set => playerInventory = value; }
+    public ClothesManager ClothesManager { get => clothesManager; set => clothesManager = value; }
 
     private void Awake()
     {
         Instance = this;
-        animator = GetComponentInChildren<Animator>();
+        playerAnimator = GetComponentInChildren<Animator>();
         playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
         rigidBody = GetComponent<Rigidbody2D>();
         PlayerInventory = GetComponent<PlayerInventory>();
-        playerMovementBehaviour.Setup(this, animator, rigidBody);
-        SetCurrency(0);
+        ClothesManager = GetComponent<ClothesManager>();
+        playerMovementBehaviour.Setup(this, playerAnimator, rigidBody);
+    }
+    public int GetCurrency()
+    {
+        return currency;
     }
     public void SetCurrency(int incomingCurrency)
     {

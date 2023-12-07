@@ -8,8 +8,12 @@ public class MirrorInteraction : InteractionBase
     {
         OpenChangeClothesUI();
     }
+    public override void EndInteraction()
+    {
+        UIManager.Instance.Inventory.inventoryGameObject.SetActive(false);
+    }
     public void OpenChangeClothesUI()
     {
-        print("abri o espelho");
+        UIManager.Instance.Inventory.Setup();
     }
 }

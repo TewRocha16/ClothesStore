@@ -482,6 +482,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneralButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8342510298214101525, guid: 6b6687a14b0b30a41a790a001e5fc0e6, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342510298214101525, guid: 6b6687a14b0b30a41a790a001e5fc0e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9859759479cc74345829fb53715faa21, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
