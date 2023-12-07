@@ -35,9 +35,10 @@ public class InventoryItemBehaviour : ItemBehaviourBase
                 if (item.quantity == 0)
                 {
                     gameObject.SetActive(false);
-                    if (PlayerManager.Instance.ClothesManager.ActualCloth.clothName == item.item.itemName)
+                    if (PlayerManager.Instance.ClothesManager.ActualCloth != null)
                     {
-                        PlayerManager.Instance.ClothesManager.SetupNewCloth(defaultCloth.clothName);
+                        if (PlayerManager.Instance.ClothesManager.ActualCloth.clothName == item.item.itemName)
+                            PlayerManager.Instance.ClothesManager.SetupNewCloth(defaultCloth.clothName);
                     }
                 }
             }
