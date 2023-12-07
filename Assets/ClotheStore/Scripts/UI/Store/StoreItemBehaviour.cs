@@ -37,8 +37,7 @@ public class StoreItemBehaviour : ItemBehaviourBase
                         souldOut.SetActive(true);
                     else
                         souldOut.SetActive(false);
-                    audioSource.clip = purchase;
-                    audioSource.Play();
+                    SoundManager.PlaySound(purchase);
                     PlayerManager.Instance.SetCurrency(-intValue);
                 }
             }
@@ -52,8 +51,7 @@ public class StoreItemBehaviour : ItemBehaviourBase
         else
         {
             value.gameObject.GetComponent<Animator>().SetTrigger("trig");
-            audioSource.clip = withoutMoneySound;
-            audioSource.Play();
+            SoundManager.PlaySound(withoutMoneySound);
         }
     }
 }
