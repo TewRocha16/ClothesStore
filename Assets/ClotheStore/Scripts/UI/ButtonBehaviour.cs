@@ -8,9 +8,9 @@ using UnityEngine.EventSystems;
 public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] private string buttonName;
-    [SerializeField] private UnityEvent clickEvent;
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip pressedSound;
+    public UnityEvent clickEvent;
     private AudioSource audioSource;
     private bool canPress = true;
     private void Awake()

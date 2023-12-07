@@ -12,10 +12,10 @@ public class InventoryItemBehaviour : ItemBehaviourBase
     {
         audioSource = GetComponent<AudioSource>();
     }
-    public override void SetupItem(string _itemName, int _value, string _description, Sprite _sprite, int quantity, List<Item> _sellerItens, Store _store)
+    public override void SetupItem(Item _item, List<Item> _sellerItens, Store _store)
     {
-        base.SetupItem(_itemName, _value, _description, _sprite, quantity, _sellerItens, _store);
-        if (quantity == 0)
+        base.SetupItem(_item, _sellerItens, _store);
+        if (itemSelected.quantity == 0)
             gameObject.SetActive(false);
     }
     public override void SellItem()
