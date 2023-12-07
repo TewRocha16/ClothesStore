@@ -10,6 +10,7 @@ public class ItemToShow : MonoBehaviour
     [SerializeField] private UnityEvent action;
     [SerializeField] Image itemImage;
     [SerializeField] TMP_Text itemName;
+    [SerializeField] AudioClip equipArmorSound;
     private Item item;
     public void SetupItem(Item _item)
     {
@@ -28,6 +29,7 @@ public class ItemToShow : MonoBehaviour
     }
     public void UseItem()
     {
+        SoundManager.PlaySound(equipArmorSound);
         PlayerManager.Instance.ClothesManager.SetupNewCloth(item.item.itemName);
         UIManager.Instance.Inventory.inventoryGameObject.SetActive(false);
     }
