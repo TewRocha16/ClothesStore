@@ -13,12 +13,12 @@ public class StoreItemBehaviour : ItemBehaviourBase
     {
         audioSource = GetComponent<AudioSource>();
     }
-    public override void SetupItem(string _itemName, int _value, string _description, Sprite _sprite, int quantity, List<Item> _sellerItens, Store _store)
+    public override void SetupItem(Item _item, List<Item> _sellerItens, Store _store)
     {
-        base.SetupItem(_itemName, _value, _description, _sprite, quantity, _sellerItens, _store);
-        if (PlayerManager.Instance.Currency < _value)
+        base.SetupItem(_item, _sellerItens, _store);
+        if (PlayerManager.Instance.GetCurrency() < itemSelected.item.price)
             value.color = Color.red;
-        if (quantity == 0) 
+        if (itemSelected.quantity == 0) 
             souldOut.SetActive(true);
         else
             souldOut.SetActive(false);
@@ -26,7 +26,7 @@ public class StoreItemBehaviour : ItemBehaviourBase
     public override void SellItem()
     {
         base.SellItem();
-        if (PlayerManager.Instance.Currency >= intValue)
+        if (PlayerManager.Instance.GetCurrency() >= intValue)
         {
             foreach (var item in sellerItens)
             {

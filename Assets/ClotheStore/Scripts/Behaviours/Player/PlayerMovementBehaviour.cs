@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerMovementBehaviour : MonoBehaviour
 {
-    private PlayerManager playerBehaviour;
     private Rigidbody2D rigidBody;
     private Animator animator;
     [Header("Movement Configs")]
@@ -14,7 +13,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
     private float lastYInput = 0;
     public void Setup(PlayerManager behaviour, Animator anim, Rigidbody2D rb)
     {
-        playerBehaviour = behaviour;
         animator = anim;
         rigidBody = rb;
     }
@@ -45,9 +43,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
         animator.SetFloat("lastXDirection", lastXInput);
         animator.SetFloat("lastYDirection", lastYInput);
         animator.SetFloat("speed", direction.magnitude);
-
         rigidBody.MovePosition(rigidBody.position + direction.normalized * speed*Time.deltaTime);
-
-        //transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
 }

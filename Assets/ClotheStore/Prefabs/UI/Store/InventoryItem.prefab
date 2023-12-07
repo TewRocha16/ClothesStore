@@ -399,12 +399,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24706451524daae4caebdbf10d784240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonName: Sell
   itemQuantity: {fileID: 2381186288226226362}
   itemName: {fileID: 434370798540583384}
   value: {fileID: 3089880540721382202}
   sprite: {fileID: 1887952189389893056}
-  description: 
-  intValue: 0
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7274761028162669414}
+        m_TargetAssemblyTypeName: InventoryItemBehaviour, Assembly-CSharp
+        m_MethodName: SellItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   sellSound: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
 --- !u!1 &7341563108870056221
 GameObject:
@@ -899,12 +913,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: 
+  hoverSound: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
+  pressedSound: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7274761028162669414}
-        m_TargetAssemblyTypeName: InventoryItemBehaviour, Assembly-CSharp
-        m_MethodName: SellItem
+        m_TargetAssemblyTypeName: ItemBehaviourBase, Assembly-CSharp
+        m_MethodName: OpenModal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -914,8 +930,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  hoverSound: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
-  pressedSound: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
 --- !u!82 &7976451961736975538
 AudioSource:
   m_ObjectHideFlags: 0

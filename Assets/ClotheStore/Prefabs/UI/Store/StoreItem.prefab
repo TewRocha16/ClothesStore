@@ -693,13 +693,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac4b56cb1507de4f805e00206f795c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonName: Buy
   itemQuantity: {fileID: 4677116248898631160}
   itemName: {fileID: 3419696285048101881}
   value: {fileID: 7364793070124648021}
   sprite: {fileID: 2544062328733121733}
-  store: {fileID: 0}
-  playerItens: []
-  sellerItens: []
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7594728456680471584}
+        m_TargetAssemblyTypeName: StoreItemBehaviour, Assembly-CSharp
+        m_MethodName: SellItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   souldOut: {fileID: 112324766508695308}
   withoutMoneySound: {fileID: 8300000, guid: 00b18e15346f38a4e8535ac98e4ac9ee, type: 3}
   purchase: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
@@ -904,12 +917,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: 
+  hoverSound: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
+  pressedSound: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7594728456680471584}
-        m_TargetAssemblyTypeName: StoreItemBehaviour, Assembly-CSharp
-        m_MethodName: SellItem
+        m_TargetAssemblyTypeName: ItemBehaviourBase, Assembly-CSharp
+        m_MethodName: OpenModal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,8 +934,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  hoverSound: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
-  pressedSound: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
 --- !u!82 &2594908307759288751
 AudioSource:
   m_ObjectHideFlags: 0
