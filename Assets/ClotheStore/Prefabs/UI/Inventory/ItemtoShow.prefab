@@ -453,6 +453,7 @@ MonoBehaviour:
         m_CallState: 2
   itemImage: {fileID: 3175764553784569271}
   itemName: {fileID: 7690106674414750698}
+  equipArmorSound: {fileID: 8300000, guid: c134bf6bd85561b4b938c913b97b57c9, type: 3}
 --- !u!1 &7319313542309390471
 GameObject:
   m_ObjectHideFlags: 0

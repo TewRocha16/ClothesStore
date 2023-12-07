@@ -7,8 +7,8 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/ClotheStore/Scenes/MainMenu.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: afe7ae74e9a263148b0ac4f9a37c0fd0
   - enabled: 1
     path: Assets/ClotheStore/Scenes/Gameplay.unity
-    guid: afe7ae74e9a263148b0ac4f9a37c0fd0
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

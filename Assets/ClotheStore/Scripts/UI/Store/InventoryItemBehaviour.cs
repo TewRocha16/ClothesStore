@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class InventoryItemBehaviour : ItemBehaviourBase
 {
+    [SerializeField] Cloth defaultCloth;
     [SerializeField] AudioClip sellSound;
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class InventoryItemBehaviour : ItemBehaviourBase
     public override void SetupItem(Item _item, List<Item> _sellerItens, Store _store)
     {
         base.SetupItem(_item, _sellerItens, _store);
+        if (_item.item.itemName == "Unnequip")
+            gameObject.SetActive(false);
         if (itemSelected.quantity == 0)
             gameObject.SetActive(false);
     }
@@ -27,11 +30,16 @@ public class InventoryItemBehaviour : ItemBehaviourBase
             {
                 item.quantity -= 1;
                 itemQuantity.text = item.quantity.ToString();
-                audioSource.clip = sellSound;
-                audioSource.Play();
+                SoundManager.PlaySound(sellSound);
                 PlayerManager.Instance.SetCurrency(intValue);
                 if (item.quantity == 0)
+                {
                     gameObject.SetActive(false);
+                    if (PlayerManager.Instance.ClothesManager.ActualCloth.clothName == item.item.itemName)
+                    {
+                        PlayerManager.Instance.ClothesManager.SetupNewCloth(defaultCloth.clothName);
+                    }
+                }
             }
         }
         foreach (Item item in sellerItens)

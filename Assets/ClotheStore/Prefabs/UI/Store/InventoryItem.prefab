@@ -419,6 +419,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  defaultCloth: {fileID: 11400000, guid: 0cf28919f6f2d284d916271bed40a75f, type: 2}
   sellSound: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
 --- !u!1 &7341563108870056221
 GameObject:
